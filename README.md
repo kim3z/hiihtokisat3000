@@ -7,6 +7,9 @@ Ohjelmoinnin erikoiskurssi - Harjoitustyö
 - Kim Lehtinen
 
 ## Tietokanta
+
+<img src="hiihtokisat.svg">
+
 Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
 
 Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [http://lehtin.com](http://lehtin.com).
