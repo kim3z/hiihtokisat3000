@@ -1,20 +1,28 @@
-# Näin Github toimii
+# hiihtokisat3000
+Ohjelmoinnin erikoiskurssi - Harjoitustyö
 
-## Lisää tekemäsi muutokset
+- Alimu Ayiding
+- Santeri Kuurila
+- Joonas Kyttänen
+- Kim Lehtinen
+
+## Näin Github toimii
+
+### Lisää tekemäsi muutokset
 Lisää tiedostot: `git add .`
 
 Kerro mitä ole tehnyt: `git commit -m "Kirjoita tänne jotain"`
 
 Päivitä remote: `git push origin master`
 
-## Hae viimeiset muutokset
+### Hae viimeiset muutokset
 `git pull origin master`
 
-# Start application
+## Start application
 cd `public`
 `php -S localhost:4000`
 
-# Virtuaalikone - Vagrant PHP7
+## Virtuaalikone - Vagrant PHP7 (Jos haluaa käyttää)
 
 A simple Vagrant LAMP setup with PHP 7.1 running on Ubuntu 16.04 LTS.
 
