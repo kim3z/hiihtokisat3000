@@ -19,8 +19,8 @@ Päivitä remote: `git push origin master`
 `git pull origin master`
 
 ## Start application
-cd `public`
-`php -S localhost:4000`
+- `cd public`
+- `php -S localhost:4000`
 
 ## Virtuaalikone - Vagrant PHP7 (Jos haluaa käyttää)
 
