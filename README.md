@@ -9,7 +9,7 @@ Ohjelmoinnin erikoiskurssi - Harjoitustyö
 ## Tietokanta
 Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
 
-Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [lehtin.com](http://lehtin.com).
+Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [http://lehtin.com](http://lehtin.com).
 
 ## Näin Github toimii
 
@@ -26,6 +26,9 @@ Päivitä remote: `git push origin master`
 ## Start application
 - `cd public`
 - `php -S localhost:4000`
+
+## XAMPP (Jos haluaa käyttää)
+Kaikki tämän projektin PHP tiedostot ovat public kansiossa. Jos laitat koko projekti htdocs kansioon löydät sovelluksen osoitteesta [http://localhost/hiihtokisat3000/public](http://localhost/hiihtokisat3000/public)
 
 ## Virtuaalikone - Vagrant PHP7 (Jos haluaa käyttää)
 
