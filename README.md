@@ -6,6 +6,11 @@ Ohjelmoinnin erikoiskurssi - Harjoitustyö
 - Joonas Kyttänen
 - Kim Lehtinen
 
+## Tietokanta
+Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
+
+Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [lehtin.com](http://lehtin.com).
+
 ## Näin Github toimii
 
 ### Lisää tekemäsi muutokset
@@ -19,8 +24,8 @@ Päivitä remote: `git push origin master`
 `git pull origin master`
 
 ## Start application
-cd `public`
-`php -S localhost:4000`
+- `cd public`
+- `php -S localhost:4000`
 
 ## Virtuaalikone - Vagrant PHP7 (Jos haluaa käyttää)
 
