@@ -118,10 +118,10 @@ session_start();
           ?>
           <?php if (!isset($_SESSION['user'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="page_register.php">Rekisteröidy</a>
+            <a class="nav-link" href="rekisteroidy_sivu.php">Rekisteröidy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-primary text-white" href="page_login.php">Kirjaudu sisään</a>
+            <a class="nav-link btn btn-primary text-white" href="kirjaudu_sisaan_sivu.php">Kirjaudu sisään</a>
           </li>
           <?php } ?>
         </ul>

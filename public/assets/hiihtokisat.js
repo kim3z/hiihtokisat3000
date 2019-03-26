@@ -89,15 +89,14 @@ function initRegister() {
     $('#register-form').submit(function(e) {
         e.preventDefault();
         $('#register-form-spinner').show();
-        var formData = getFormDataObject('register-form');
+        var formData = new FormData(this);
+
         $.ajax({
             type: 'POST',
-            data: {
-                username: formData['username'],
-                password: formData['password']
-            },
-            url: 'register.php',
+            data: formData,
+            url: 'scripts/register.php',
             success: function(data){
+                console.log('DATAA', data);
               if (data === 'true') {
                 $('#register-form-spinner').hide();
                 $('#alert-register-success > strong').html('Kiitos! Voit nyt kirjautua sisään.');

@@ -1,5 +1,6 @@
 <?php 
     include_once './header.php';
+    include_once './classes/Seura.php'
 ?>
 
   <section id="register-form-section">
@@ -26,13 +27,36 @@
           </div>
           <form id="register-form" method="post">
             <div class="form-group">
-                <label for="username">Käyttäjätunnus</label>
-                <input class="form-control" type="text" name="username" autocomplete="off" />
+                <label for="email">Sähköpostiiii</label>
+                <input required class="form-control" type="text" name="email"   />
             </div>
-
             <div class="form-group">
-                <label for="password">Salasana</label>
-                <input class="form-control" type="password" name="password" autocomplete="off" />
+                <label for="etunimi">Etunimi</label>
+                <input required class="form-control" type="text" name="etunimi"   />
+            </div>
+            <div class="form-group">
+                <label for="sukunimi">Sukunimi</label>
+                <input required class="form-control" type="text" name="sukunimi"   />
+            </div>
+            <div class="form-group">
+                <label for="syntymaAika">Syntymäaika</label>
+                <input required class="form-control" type="date" name="syntymaAika" id="syntymaAika"   />
+            </div>
+            <div class="form-group">
+                <label for="seuraId">Seura</label>
+                <select required class="form-control" name="seuraId" id="seuraId">
+                  <?php
+                    $seurat = Seura::kaikkiSeurat();
+
+                    foreach ($seurat as $seura) {
+                      echo '<option value="' . $seura['id'] . '">' . $seura['nimi'] . '</option>';
+                    }
+                  ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="salasana">Salasana</label>
+                <input required class="form-control" type="password" name="salasana"   />
             </div>
 
             <input type="submit" class="btn btn-primary" value="Rekisteröidy" />

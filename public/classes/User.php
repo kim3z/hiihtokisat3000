@@ -5,39 +5,40 @@
   */
 
 class User {
-    private $db_table = 'users';
-    private $conn;
 
-    public $id;
-    public $username;
-    public $password;
-
-    public function __construct($db) {
-        $this->conn = $db;
-    }
+    public static $ADMIN_USER = 1;
+    public static $NORMAL_USER = 2;
 
     /**
-     * User register
+     * Register new user
      */
-    function register() {
-        if ($this->exists()) {
+    public static function registerUser($user) {
+
+        if (self::exists($user['email'])) {
             return false;
-        } 
+        }
 
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $this->password = htmlspecialchars(strip_tags($this->password));
+        require('../kantayhteys.php');
 
-        $sql = 'INSERT INTO ' . $this->db_table . ' (username, password) VALUES (:username, :password)';
-        $stmt = $this->conn->prepare($sql);
-
-        $params = array(
-            ':username' => $this->username,
-            ':password' => $this->password
+        $stmt = $conn->prepare('INSERT INTO user (etunimi, sukunimi, email, salasana, seuraId, syntymaAika, sukupuoli, rooli) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        $stmt->bind_param(
+                    'ssssisii', 
+                    $user['etunimi'], 
+                    $user['sukunimi'], 
+                    $user['email'], 
+                    $user['salasana'], 
+                    $user['seuraId'], 
+                    $user['syntymaAika'], 
+                    $user['sukupuoli'], 
+                    $user['rooli']
         );
-        
-        if ($stmt->execute($params)) {
+
+        if ($stmt->execute()) {
+            $conn->close();
             return true;
         }
+
+        $conn->close();
 
         return false;
     }
@@ -45,7 +46,7 @@ class User {
     /**
      * User login
      */
-    function login() {
+    public static function login() {
         $sql = 'SELECT * FROM ' . $this->db_table. ' WHERE username=:username';
         $stmt = $this->conn->prepare($sql);
 
@@ -68,20 +69,23 @@ class User {
     /**
      * Check if user already exists
      */
-    function exists() {
+    protected static function exists($email) {
         $userExists = false;
-        $sql = 'SELECT * FROM ' . $this->db_table . ' WHERE username=:username';
 
-        $stmt = $this->conn->prepare($sql);
+        require('../kantayhteys.php');
 
-        $params = array(
-            ':username' => $this->username
-        );
+        $stmt = $conn->prepare("SELECT email FROM user WHERE email = ? LIMIT 1");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
 
-        $stmt->execute($params);
+        $existingEmail = $stmt->get_result()->fetch_object()->email;
 
-        if($stmt->rowCount() > 0){
-            $userExists = true;
+        $stmt->close();
+
+        if (isset($existingEmail)) {
+            if ($existingEmail === $email) {
+                $userExists = true;
+            }
         }
 
         return $userExists;

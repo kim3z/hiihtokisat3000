@@ -3,24 +3,28 @@
 /**
   * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
   */
+include_once '../classes/User.php';
 
-include_once './Database/DB.php';
-include_once './Database/Models/User.php';
+$newUser = [
+    'etunimi' => $_POST['etunimi'],
+    'sukunimi' => $_POST['sukunimi'],
+    'email' => $_POST['email'],
+    'salasana' => password_hash($_POST['salasana'], PASSWORD_DEFAULT),
+    'seuraId' => $_POST['seuraId'],
+    'syntymaAika' => $_POST['syntymaAika'],
+    'sukupuoli' => $_POST['sukupuoli'],
+    'rooli' => User::$NORMAL_USER,
+];
 
-$db = new DB();
-$dbConn = $db->newConnection();
+echo(json_encode($newUser));
 
-$user = new User($dbConn);
+return;
 
-$user->username = $_POST['username'];
-$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-if ($user->register()) {
+if (User::registerUser($newUser)) {
     echo 'true';
-    //header('Location: page_login.php?register_success=true');
+    // header('Location: ../kirjaudu_sisaan.php?register_success=true');
 } else {
     echo 'false';
-    //header('Location: page_register.php?register_success=false');
 }
 
 ?>
