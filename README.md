@@ -6,6 +6,11 @@ Ohjelmoinnin erikoiskurssi - Harjoitustyö
 - Joonas Kyttänen
 - Kim Lehtinen
 
+## Tietokanta
+Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
+
+Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [lehtin.com](http://lehtin.com).
+
 ## Näin Github toimii
 
 ### Lisää tekemäsi muutokset
