@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="52 107 629 489" width="577px" height="382px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="488" y1="258" x2="478" y2="258" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="368" y1="152" x2="358" y2="152" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="478" y1="258" x2="368" y2="152" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="480.5" y1="258" x2="484.03553390593" y2="261.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="480.5" y1="258" x2="484.03553390593" y2="254.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="363" y1="152" x2="366.53553390593" y2="155.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="363" y1="152" x2="366.53553390593" y2="148.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="488" y1="278" x2="478" y2="278" style="stroke:#333;stroke-width:1;"/>
+   <line x1="307" y1="335" x2="297" y2="335" style="stroke:#333;stroke-width:1;"/>
+   <line x1="478" y1="278" x2="307" y2="335" style="stroke:#333;stroke-width:1;"/>
+   <line x1="480.5" y1="278" x2="484.03553390593" y2="281.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="480.5" y1="278" x2="484.03553390593" y2="274.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="302" y1="335" x2="305.53553390593" y2="338.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="302" y1="335" x2="305.53553390593" y2="331.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="488" y1="298" x2="478" y2="298" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="333" y1="424" x2="323" y2="424" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="478" y1="298" x2="333" y2="424" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="480.5" y1="298" x2="484.03553390593" y2="301.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="480.5" y1="298" x2="484.03553390593" y2="294.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="328" y1="424" x2="331.53553390593" y2="427.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="328" y1="424" x2="331.53553390593" y2="420.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="257" y1="232" x2="247" y2="232" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="123" y1="218" x2="113" y2="218" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="247" y1="232" x2="123" y2="218" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="249.5" y1="232" x2="253.03553390593" y2="235.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="249.5" y1="232" x2="253.03553390593" y2="228.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="118" y1="218" x2="121.53553390593" y2="221.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="118" y1="218" x2="121.53553390593" y2="214.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <rect width="41" height="20" x="256" y="305" style="fill:#007;stroke:black;"/>
+   <text width="41" height="20" x="261" y="319" style="fill:#fff;" font-family="Arial" font-size="16px"> kisa</text>
+   <rect width="41" height="20" x="256" y="325" style="fill:#aea;stroke:black;"/>
+   <text width="41" height="20" x="261" y="339" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="41" height="20" x="256" y="345" style="fill:none;stroke:black;"/>
+   <text width="41" height="20" x="261" y="359" style="fill:black;" font-family="Arial" font-size="16px">date</text>
+   <rect width="126" height="20" x="488" y="208" style="fill:#007;stroke:black;"/>
+   <text width="126" height="20" x="493" y="222" style="fill:#fff;" font-family="Arial" font-size="16px"> osallistuminen</text>
+   <rect width="126" height="20" x="488" y="228" style="fill:#aea;stroke:black;"/>
+   <text width="126" height="20" x="493" y="242" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="126" height="20" x="488" y="248" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="262" style="fill:black;" font-family="Arial" font-size="16px">userId</text>
+   <rect width="126" height="20" x="488" y="268" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="282" style="fill:black;" font-family="Arial" font-size="16px">kisaId</text>
+   <rect width="126" height="20" x="488" y="288" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="302" style="fill:black;" font-family="Arial" font-size="16px">sarjaId</text>
+   <rect width="126" height="20" x="488" y="308" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="322" style="fill:black;" font-family="Arial" font-size="16px">lahtoAika</text>
+   <rect width="126" height="20" x="488" y="328" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="342" style="fill:black;" font-family="Arial" font-size="16px">valiAika1</text>
+   <rect width="126" height="20" x="488" y="348" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="362" style="fill:black;" font-family="Arial" font-size="16px">valiAika2</text>
+   <rect width="126" height="20" x="488" y="368" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="382" style="fill:black;" font-family="Arial" font-size="16px">loppuAika</text>
+   <rect width="126" height="20" x="488" y="388" style="fill:none;stroke:black;"/>
+   <text width="126" height="20" x="493" y="402" style="fill:black;" font-family="Arial" font-size="16px">jarjestysNumero</text>
+   <rect width="65" height="20" x="258" y="394" style="fill:#007;stroke:black;"/>
+   <text width="65" height="20" x="263" y="408" style="fill:#fff;" font-family="Arial" font-size="16px"> sarja</text>
+   <rect width="65" height="20" x="258" y="414" style="fill:#aea;stroke:black;"/>
+   <text width="65" height="20" x="263" y="428" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="65" height="20" x="258" y="434" style="fill:none;stroke:black;"/>
+   <text width="65" height="20" x="263" y="448" style="fill:black;" font-family="Arial" font-size="16px">max_ika</text>
+   <rect width="65" height="20" x="258" y="454" style="fill:none;stroke:black;"/>
+   <text width="65" height="20" x="263" y="468" style="fill:black;" font-family="Arial" font-size="16px">min_ika</text>
+   <rect width="46" height="20" x="67" y="188" style="fill:#007;stroke:black;"/>
+   <text width="46" height="20" x="72" y="202" style="fill:#fff;" font-family="Arial" font-size="16px"> seura</text>
+   <rect width="46" height="20" x="67" y="208" style="fill:#aea;stroke:black;"/>
+   <text width="46" height="20" x="72" y="222" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="46" height="20" x="67" y="228" style="fill:none;stroke:black;"/>
+   <text width="46" height="20" x="72" y="242" style="fill:black;" font-family="Arial" font-size="16px">nimi</text>
+   <rect width="101" height="20" x="257" y="122" style="fill:#007;stroke:black;"/>
+   <text width="101" height="20" x="262" y="136" style="fill:#fff;" font-family="Arial" font-size="16px"> user</text>
+   <rect width="101" height="20" x="257" y="142" style="fill:#aea;stroke:black;"/>
+   <text width="101" height="20" x="262" y="156" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="101" height="20" x="257" y="162" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="176" style="fill:black;" font-family="Arial" font-size="16px">etunimi</text>
+   <rect width="101" height="20" x="257" y="182" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="196" style="fill:black;" font-family="Arial" font-size="16px">sukunimi</text>
+   <rect width="101" height="20" x="257" y="202" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="216" style="fill:black;" font-family="Arial" font-size="16px">salasana</text>
+   <rect width="101" height="20" x="257" y="222" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="236" style="fill:black;" font-family="Arial" font-size="16px">seuraId</text>
+   <rect width="101" height="20" x="257" y="242" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="256" style="fill:black;" font-family="Arial" font-size="16px">syntymaAika</text>
+   <rect width="101" height="20" x="257" y="262" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="276" style="fill:black;" font-family="Arial" font-size="16px">sukupuoli</text>
+   <rect width="101" height="20" x="257" y="282" style="fill:none;stroke:black;"/>
+   <text width="101" height="20" x="262" y="296" style="fill:black;" font-family="Arial" font-size="16px">rooli</text>
+</svg>
