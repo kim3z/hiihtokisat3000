@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Assign a quarter of host memory and all available CPU's to VM
     # Depending on host OS this has to be done differently.
     config.vm.provider :virtualbox do |vb|
+	vb.gui = true
         host = RbConfig::CONFIG['host_os']
 
         if host =~ /darwin/

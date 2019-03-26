@@ -10,7 +10,11 @@ Päivitä remote: `git push origin master`
 ## Hae viimeiset muutokset
 `git pull origin master`
 
-# Virtuaalikone - Vagrant PHP7 
+# Start application
+cd `public`
+`php -S localhost:4000`
+
+# Virtuaalikone - Vagrant PHP7
 
 A simple Vagrant LAMP setup with PHP 7.1 running on Ubuntu 16.04 LTS.
 
@@ -40,5 +44,5 @@ A simple Vagrant LAMP setup with PHP 7.1 running on Ubuntu 16.04 LTS.
 192.168.100.100 app.local
 192.168.100.100 phpmyadmin.local
 ````
-- Navigate to ``http://app.local/`` 
+- Navigate to ``http://app.local/``
 - Navigate to ``http://phpmyadmin.local/`` (both username and password are 'root')
