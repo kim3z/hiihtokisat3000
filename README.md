@@ -1,4 +1,16 @@
-# Vagrant PHP7 
+# Näin Github toimii
+
+## Lisää tekemäsi muutokset
+Lisää tiedostot: `git add .`
+
+Kerro mitä ole tehnyt: `git commit -m "Kirjoita tänne jotain"`
+
+Päivitä remote: `git push origin master`
+
+## Hae viimeiset muutokset
+`git pull origin master`
+
+# Virtuaalikone - Vagrant PHP7 
 
 A simple Vagrant LAMP setup with PHP 7.1 running on Ubuntu 16.04 LTS.
 
