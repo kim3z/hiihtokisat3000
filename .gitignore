@@ -1,5 +1,4 @@
 .idea/
 .vagrant/
 kantayhteys.php
-public/kantayhteys.php
-public/sovellus/kantayhteys.php
+sovellus/kantayhteys.php

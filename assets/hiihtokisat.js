@@ -48,10 +48,6 @@ function filterCategory(filter) {
     }
 }
 
-function initListPosts() {
-    //
-}
-
 function initCreatePost() {
     $('#create-post-form').submit(function(e) {
         e.preventDefault();
