@@ -8,6 +8,9 @@ class User {
 
     public static $ADMIN_USER = 1;
     public static $NORMAL_USER = 2;
+    
+    public static $GENDER_MALE = 1;
+    public static $GENDER_FEMALE = 2;
 
     /**
      * Register new user
@@ -72,21 +75,20 @@ class User {
     protected static function exists($email) {
         $userExists = false;
 
-        require('../kantayhteys.php');
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = ? LIMIT 1");
+        $stmt = $conn->prepare('SELECT email FROM user WHERE email = ?');
         $stmt->bind_param('s', $email);
         $stmt->execute();
 
-        $existingEmail = $stmt->get_result()->fetch_object()->email;
+        $stmt->store_result();
+        
+        if ($stmt->num_rows > 0) {
+            return true;
+        }
 
         $stmt->close();
-
-        if (isset($existingEmail)) {
-            if ($existingEmail === $email) {
-                $userExists = true;
-            }
-        }
+        $conn->close();
 
         return $userExists;
     }

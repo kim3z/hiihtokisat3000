@@ -16,10 +16,6 @@ $newUser = [
     'rooli' => User::$NORMAL_USER,
 ];
 
-echo(json_encode($newUser));
-
-return;
-
 if (User::registerUser($newUser)) {
     echo 'true';
     // header('Location: ../kirjaudu_sisaan.php?register_success=true');

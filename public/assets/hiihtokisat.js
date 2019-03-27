@@ -95,23 +95,31 @@ function initRegister() {
             type: 'POST',
             data: formData,
             url: 'scripts/register.php',
+            processData: false,
+            contentType: false,
             success: function(data){
-                console.log('DATAA', data);
-              if (data === 'true') {
-                $('#register-form-spinner').hide();
-                $('#alert-register-success > strong').html('Kiitos! Voit nyt kirjautua sisään.');
-                $('#alert-register-success').show();
-                $('#register-form')[0].reset();
-              } else {
-                $('#register-form-spinner').hide();
-                $('#alert-register-failed > strong').html('Rekisteröityminen epäonnistui');
-                $('#alert-register-failed').show();
-              }
+                if (data === 'true') {
+                    $('#register-form-spinner').hide();
+                    $('#alert-register-success > strong').html('Kiitos! Voit nyt kirjautua sisään.');
+                    $('#alert-register-success').show();
+                    $('#register-form')[0].reset();
+                } else {
+                    $('#register-form-spinner').hide();
+                    $('#alert-register-failed > strong').html('Rekisteröityminen epäonnistui');
+                    $('#alert-register-failed').show();
+                }
+
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#register-form-section").offset().top
+                }, 500);
             },
             error: function (request, status, error) {
                 $('#register-form-spinner').hide();
                 $('#alert-register-failed > strong').html('Rekisteröityminen epäonnistui');
                 $('#alert-register-failed').show();
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#register-form-section").offset().top
+                }, 500);
                 console.log(request.responseText);
             }
         });

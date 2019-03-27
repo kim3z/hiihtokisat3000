@@ -20,14 +20,9 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div style="display: none;" id="register-form-spinner" class="text-center">
-            <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
           <form id="register-form" method="post">
             <div class="form-group">
-                <label for="email">Sähköpostiiii</label>
+                <label for="email">Sähköposti</label>
                 <input required class="form-control" type="text" name="email"   />
             </div>
             <div class="form-group">
@@ -41,6 +36,13 @@
             <div class="form-group">
                 <label for="syntymaAika">Syntymäaika</label>
                 <input required class="form-control" type="date" name="syntymaAika" id="syntymaAika"   />
+            </div>
+            <div class="form-group">
+                <label for="syntymaAika">Sukupuoli</label>
+                <select required class="form-control" name="sukupuoli" id="sukupuoli">
+                  <option value="1">Mies</option>
+                  <option value="2">Nainen</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="seuraId">Seura</label>
@@ -60,6 +62,11 @@
             </div>
 
             <input type="submit" class="btn btn-primary" value="Rekisteröidy" />
+            <div style="display: none;" id="register-form-spinner" class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
         </form>
         </div>
       </div>
