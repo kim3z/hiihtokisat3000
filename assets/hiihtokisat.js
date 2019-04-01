@@ -129,21 +129,20 @@ function initLogin() {
         $.ajax({
             type: 'POST',
             data: {
-                username: formData['username'],
-                password: formData['password']
+                email: formData['email'],
+                salasana: formData['salasana']
             },
-            url: 'login.php',
+            url: 'scripts/login.php',
             success: function(data){
                 if (data === 'true') {
-                    window.location = '/';
-                }
-                else {
-                $('#alert-login-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista käyttäjätunnus tai salasana.');
-                $('#alert-login-failed').show();
+                    window.location.href = '/sovellus';
+                } else {
+                    $('#alert-login-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista sähköpostiosoite tai salasana.');
+                    $('#alert-login-failed').show();
                 }
             },
             error: function (request, status, error) {
-                $('#alert-register-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista käyttäjätunnus tai salasana.');
+                $('#alert-register-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista sähköpostiosoite tai salasana.');
                 $('#alert-register-failed').show();
                 console.log(request.responseText);
             }

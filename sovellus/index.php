@@ -2,6 +2,7 @@
   /**
     * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
     */
+    require_once './onko_tavallinen_kayttaja.php';
     include_once './sovellus_header.php';
 ?>
   <section id="sovellus-dashboard">

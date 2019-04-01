@@ -49,18 +49,24 @@ class User {
     /**
      * User login
      */
-    public static function login() {
-        $sql = 'SELECT * FROM ' . $this->db_table. ' WHERE username=:username';
-        $stmt = $this->conn->prepare($sql);
+    public static function login($given_email, $given_psw) {
+        require('../kantayhteys.php');
+        $user = null;
+        $stmt = $conn->prepare('SELECT * FROM user WHERE email = ?');
 
-        $params = array(
-            ':username' => $this->username
-        );
+        $stmt->bind_param('s', $given_email);
+        $stmt->execute();
 
-        $stmt->execute($params);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->get_result();
 
-        if($user && password_verify($this->password, $user['password'])){
+        while($row = $result->fetch_assoc()) {
+            if (isset($row)) {
+                $user = $row;
+                break;
+            }
+        }
+
+        if($user && password_verify($given_psw, $user['salasana'])){
             session_start();
             $_SESSION['user'] = $user;
             return true;

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../classes/User.php';
+
 /**
  * Käytä tämä tiedosto jos haluat että käyttäjän
  * on oltava sisäänkirjautunut (admin kayttaja).
@@ -12,9 +14,9 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: login-page.php');
+    header('Location: ../kirjaudu_sisaan_sivu.php');
 }
 
-if (isset($_SESSION['user']) && $_SESSION['user']['rooli'] !== 1) {
-    header('Location: login-page.php');
+if (isset($_SESSION['user']) && $_SESSION['user']['rooli'] !== User::$ADMIN_USER) {
+    header('Location: ../kirjaudu_sisaan_sivu.php');
 }

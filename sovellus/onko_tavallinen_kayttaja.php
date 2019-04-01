@@ -14,5 +14,5 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: login-page.php');
+    header('Location: ../kirjaudu_sisaan_sivu.php');
 }

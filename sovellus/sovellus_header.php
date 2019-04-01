@@ -117,7 +117,7 @@ session_start();
             <a class="nav-link" href="">Profiili</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Kirjaudu ulos</a>
+            <a class="nav-link" href="../scripts/logout.php">Kirjaudu ulos</a>
           </li>
         </ul>
       </div>
