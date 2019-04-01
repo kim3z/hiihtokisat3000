@@ -86,6 +86,24 @@ session_start();
   padding-bottom: 3px;
   display: inline-block;
 }
+
+.login-form-wrapper {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+#login-form {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+}
+
+.login-top-border {
+  height: 2rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
   </style>
 
 </head>

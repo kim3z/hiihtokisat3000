@@ -22,6 +22,7 @@ session_start();
 
   <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/hiihtokisat.css" rel="stylesheet">
+  <link rel="stylesheet" href="./admin.css">
   <style>
   /* Hero image css from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_hero_image */
   body, html {
