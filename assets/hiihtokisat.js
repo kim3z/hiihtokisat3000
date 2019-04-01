@@ -125,6 +125,7 @@ function initRegister() {
 function initLogin() {
     $('#login-form').submit(function(e) {
         e.preventDefault();
+        $('#login-form-spinner').show();
         var formData = getFormDataObject('login-form');
         $.ajax({
             type: 'POST',
@@ -135,13 +136,16 @@ function initLogin() {
             url: 'scripts/login.php',
             success: function(data){
                 if (data === 'true') {
+                    $('#login-form-spinner').hide();
                     window.location.href = '/sovellus';
                 } else {
+                    $('#login-form-spinner').hide();
                     $('#alert-login-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista sähköpostiosoite tai salasana.');
                     $('#alert-login-failed').show();
                 }
             },
             error: function (request, status, error) {
+                $('#login-form-spinner').hide();
                 $('#alert-register-failed > strong').html('Sisäänkirjautuminen epäonnistui. Tarkista sähköpostiosoite tai salasana.');
                 $('#alert-register-failed').show();
                 console.log(request.responseText);
