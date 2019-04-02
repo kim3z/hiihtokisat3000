@@ -104,6 +104,9 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="./sovellus/uusi_kisa_sivu.php">Uusi kisa</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./sovellus/uusi_sarja.php">Uusi Sarja</a>
+      </li>
           <li class="nav-item">
             <a class="nav-link" href="">Kisat</a>
           </li>
