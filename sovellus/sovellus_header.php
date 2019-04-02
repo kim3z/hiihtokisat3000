@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
   * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
   */
@@ -100,14 +100,10 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <?php
-            if (isset($_SESSION['user'])) {
-              echo '
-              <li class="nav-item">
-                <a class="nav-link" href="page_create_post.php">Uusi postaus</a>
-              </li>';
-            }
-          ?>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./sovellus/uusi_kisa_sivu.php">Uusi kisa</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link" href="">Kisat</a>
           </li>

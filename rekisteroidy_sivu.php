@@ -1,4 +1,4 @@
-<?php 
+<?php
     include_once './header.php';
     include_once './classes/Seura.php'
 ?>
@@ -73,6 +73,6 @@
     </div>
   </section>
 
-<?php 
+<?php
     include_once './footer.php';
 ?>

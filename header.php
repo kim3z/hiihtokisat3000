@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
   * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
   */
@@ -126,14 +126,7 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="/sovellus">Sovellus</a>
           </li>
-          <?php
-            if (isset($_SESSION['user'])) {
-              echo '
-              <li class="nav-item">
-                <a class="nav-link" href="page_create_post.php">Uusi postaus</a>
-              </li>';
-            }
-          ?>
+
           <?php if (!isset($_SESSION['user'])) { ?>
           <li class="nav-item">
             <a class="nav-link" href="rekisteroidy_sivu.php">Rekisteröidy</a>
