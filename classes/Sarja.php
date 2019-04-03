@@ -33,6 +33,27 @@ class Sarja {
         return $kisanSarjat;   
     }
 
+    /**
+     * Poista sarja
+     */
+    public static function poistaSarja($sarja_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $stmt = $conn->prepare('DELETE FROM sarja WHERE id = ?');
+        $stmt->bind_param('i', $sarja_id);
+        
+        if ($stmt->execute()) {
+            $stmt->close();
+            $conn->close();
+            return true;
+        }
+
+        $stmt->close();
+        $conn->close();
+
+        return false;
+    }
+
     public static function onkoSarjaOlemassa($min_ika, $max_ika, $sukupuoli, $kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
