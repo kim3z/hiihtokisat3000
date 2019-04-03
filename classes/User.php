@@ -12,6 +12,31 @@ class User {
     public static $GENDER_MALE = 1;
     public static $GENDER_FEMALE = 2;
 
+    public static function updateUser($user) {
+        require('../kantayhteys.php');
+
+        $stmt = $conn->prepare('UPDATE user SET etunimi = ?, sukunimi = ?, email = ?, seuraId = ?, syntymaAika = ?, sukupuoli = ? WHERE id = ?');
+        $stmt->bind_param(
+                    'sssisii', 
+                    $user['etunimi'], 
+                    $user['sukunimi'], 
+                    $user['email'],
+                    $user['seuraId'], 
+                    $user['syntymaAika'], 
+                    $user['sukupuoli'], 
+                    $user['id']
+        );
+
+        if ($stmt->execute()) {
+            $conn->close();
+            return true;
+        }
+
+        $conn->close();
+
+        return false;
+    }
+
     /**
      * Register new user
      */
@@ -73,6 +98,26 @@ class User {
         }
 
         return false;
+    }
+
+    public static function getUserByEmail($email) {
+        require('../kantayhteys.php');
+        $user = null;
+        $stmt = $conn->prepare('SELECT * FROM user WHERE email = ?');
+
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        while($row = $result->fetch_assoc()) {
+            if (isset($row)) {
+                $user = $row;
+                break;
+            }
+        }
+
+        return $user;
     }
 
     /**

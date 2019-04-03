@@ -1,7 +1,7 @@
 <?php
 
 /**
-  * @author
+  * @author Alimu ja Kim
   */
 
 class Kisa {
@@ -10,7 +10,7 @@ class Kisa {
      * Kaikki kisat
      */
     public static function kaikkiKisat() {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
         $kisat = [];
 
@@ -21,9 +21,10 @@ class Kisa {
         while($row = $result->fetch_assoc()) {
             array_push($kisat, $row);
         }
-
+        $stmt->close();
         $conn->close();
 
         return $kisat;
     }
+
 }

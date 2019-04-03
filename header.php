@@ -126,15 +126,22 @@ session_start();
           <li class="nav-item">
             <a class="nav-link" href="/sovellus">Sovellus</a>
           </li>
+          
+          <?php if (isset($_SESSION['user'])) { ?>
+            <li class="nav-item">
+              <a class="nav-link" href="./scripts/logout.php">Kirjaudu ulos</a>
+            </li>
+          <?php } ?>
 
           <?php if (!isset($_SESSION['user'])) { ?>
-          <li class="nav-item">
-            <a class="nav-link" href="rekisteroidy_sivu.php">Rekisteröidy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-primary text-white" href="kirjaudu_sisaan_sivu.php">Kirjaudu sisään</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rekisteroidy_sivu.php">Rekisteröidy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-primary text-white" href="kirjaudu_sisaan_sivu.php">Kirjaudu sisään</a>
+            </li>
           <?php } ?>
+
         </ul>
       </div>
     </div>

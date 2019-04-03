@@ -6,7 +6,7 @@
 date_default_timezone_set('Europe/Helsinki');
 setlocale(LC_TIME, "fi_FI");
 
-session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,21 +100,20 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-
           <li class="nav-item">
-            <a class="nav-link" href="./sovellus/uusi_kisa_sivu.php">Uusi kisa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./sovellus/uusi_sarja.php">Uusi Sarja</a>
-      </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Kisat</a>
+            <a class="nav-link" href="../sovellus">Etusivu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Ilmoittautumiset</a>
+            <a class="nav-link" href="uusi_kisa_sivu.php">Uusi kisa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Profiili</a>
+            <a class="nav-link" href="uusi_sarja.php">Uusi sarja</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Omat ilmoittautumiset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profiili_sivu.php">Profiili</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../scripts/logout.php">Kirjaudu ulos</a>

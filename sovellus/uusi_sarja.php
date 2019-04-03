@@ -11,12 +11,12 @@
         <h2>Uusi sarja</h2>
         <form method="post" action="tallenna_sarja.php">
           <div class="form-group">
-              <label for="sarja_max">Maksimi Ikä</label>
-              <input required class="form-control" type="number" name="sarja_max"   />
+              <label for="sarja_min">Minimi Ikä</label>
+              <input required class="form-control" type="number" name="sarja_min" min="4" />
           </div>
           <div class="form-group">
-              <label for="sarja_min">Minimi Ikä</label>
-              <input required class="form-control" type="number" name="sarja_min"   />
+              <label for="sarja_max">Maksimi Ikä</label>
+              <input required class="form-control" type="number" name="sarja_max" min="5" max="99"  />
           </div>
           <div class="form-group">
               <label for="sukupuoli">Sukupuoli</label>
