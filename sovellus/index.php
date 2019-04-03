@@ -6,37 +6,55 @@
     include_once './sovellus_header.php';
     include_once '../classes/Kisa.php';
     include_once '../classes/Sarja.php';
+    include_once '../classes/User.php';
 ?>
   <section id="sovellus-dashboard">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <di class="col-lg-8 mx-auto">
             <h2>Kilpailut</h2>
-            <ul class="list-group">
               <?php
                   $kisat = Kisa::kaikkiKisat();
 
                   foreach ($kisat as $kisa) {
-                    echo '<li class="list-group-item">';
-                    echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . '</h4><br>';
+                    echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
+                    
+                    if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
+                        echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_kisa.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista kisa</a>' . '</h4><br>';
+                    } else {
+                        echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . '</h4><br>';
+                    }
+
                     $kisanSarjat = Sarja::sarjat($kisa['id']);
                     if ($kisanSarjat) {
                         echo '<p><strong>Sarjat:</strong></p>';
-                        echo '<ul>';
+                        echo '<table class="table"><tbody>';
                         foreach ($kisanSarjat as $sarja) {
-                            if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
-                                echo '<li>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</li>';
+                            echo '<tr>';
+                            if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
+                                if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
+                                    echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+                                } else {
+                                    echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+                                }
                             } else {
-                                echo '<li>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</li>';
+                                if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
+                                    echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+                                } else {
+                                    echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+                                }
                             }
+                            echo '</tr>';
                         }
-                        echo '</ul>';
+                        echo '</tbody></table>';
+                    } else {
+                        echo 'Sarjoja ei ole vielä lisätty';
                     }
 
-                    echo '</li>';
+                    echo '</div><br>';
                   }
                ?>
-            </ul>
+            
             </div>
         </div>
     </div>

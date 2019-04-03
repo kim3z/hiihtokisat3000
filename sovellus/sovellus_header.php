@@ -94,7 +94,9 @@ setlocale(LC_TIME, "fi_FI");
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="/">Hiihtokisat3000</a>
+      <a class="navbar-brand" href="/">
+        Hiihtokisat3000 <?php if ($_SESSION['user']['rooli'] === 1) { echo '<span class="border" style="padding: 0.5rem;">ADMIN</span>'; } ?>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
