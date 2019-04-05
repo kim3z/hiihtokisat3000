@@ -14,6 +14,9 @@ Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
 
 Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [http://lehtin.com](http://lehtin.com).
 
+## Kantayhteys
+Projektista löytyy tiedosto nimeltään "kantayhteys-esimerkki.php". Nimeä tämä tiedosto uudelleen -> "kantayhteys.php" ja tarkista tarvittavat tiedot.
+
 ## Näin Github toimii
 
 ### Lisää tekemäsi muutokset
