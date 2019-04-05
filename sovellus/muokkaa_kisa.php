@@ -3,7 +3,7 @@
   /**
     * @author Alimu ja Kim
     */
-
+  require_once './onko_admin_kayttaja.php';
   require_once '../kantayhteys.php';
 
   // Error jos jotain puuttuu

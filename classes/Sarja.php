@@ -95,4 +95,27 @@ class Sarja {
       return $sarja;
 
     }
+
+    /**
+     * Hae sarja
+     */
+    public static function haeSarja($sarja_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $sarja = null;
+
+        $stmt = $conn->prepare('SELECT * FROM sarja WHERE id = ?');
+        $stmt->bind_param('i', $sarja_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while($row = $result->fetch_assoc()) {
+            $sarja = $row;
+            break;
+        }
+        $stmt->close();
+        $conn->close();
+
+        return $sarja;
+    }
 }

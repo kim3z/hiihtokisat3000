@@ -39,9 +39,9 @@
                             echo '<tr>';
                             if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
                                 if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
-                                    echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+                                    echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="osallistujat_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-success">Osallistujat</a></td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
                                 } else {
-                                    echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+                                    echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td><td>' . '<a href="osallistujat_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-success">Osallistujat</a></td><td>' . '<a href="muokkaa_sarja_sivu.php?id='. $sarja['id'] . '" class="btn btn-primary">Muokkaa</a>' . '</td><td>' . '<a href="poista_sarja.php?id='. $sarja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
                                 }
                             } else {
                                 if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {

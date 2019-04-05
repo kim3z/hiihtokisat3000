@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once './onko_admin_kayttaja.php';
 require_once '../classes/Sarja.php';
 
