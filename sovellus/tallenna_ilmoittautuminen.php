@@ -11,8 +11,7 @@
 
   if (!isset($_POST['kisa_Id']) ||
       !isset($_POST['sarja_Id']) ||
-      !isset($_POST['user_Id']) ||
-      !isset($_POST['kisaId'])
+      !isset($_POST['user_Id'])
   ) {
     include_once './sovellus_header.php';
     echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: täytä kaikki kentät</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
@@ -20,32 +19,44 @@
     return;
   }
 
-  if ($_SESSION['user']['id'] !== $_POST['user_Id']) {
+  if ($_SESSION['user']['id'] !== (int)$_POST['user_Id']) {
     include_once './sovellus_header.php';
     echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: et ole olemassa</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
     include_once './sovellus_footer.php';
     return;
   }
 
-  $kisa_id = $_POST['kisa_Id'];
-  $sarja_id = $_POST['sarja_Id'];
-  $user_id = $_POST['user_Id'];
+  $kisa_id = (int)$_POST['kisa_Id'];
+  $sarja_id = (int)$_POST['sarja_Id'];
+  $user_id = (int)$_POST['user_Id'];
+  $empt = '';
 
-  $jarjestys_numero = rand(1,100);
-  while (Osallistuminen::onkoJarjestysNumeroOlemassa($kisa_id, $sarja_id, $jarjestys_numero) {
-    $jarjestys_numero = rand(1,100);
+  if (Osallistuminen::kayttajaOnJoRekisteroinyt($kisa_id, $user_id)) {
+    include_once './sovellus_header.php';
+    echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: olet jo ilmoittautunut</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
+    include_once './sovellus_footer.php';
+    return;
   }
 
-  $stmt = $conn->prepare('INSERT INTO osallistuminen (userId, kisaId, sarjaId, jarjestysNumero) VALUES (?, ?, ?, ?)');
+  $jarjestys_numero = rand(1,100);
+  
+  while (Osallistuminen::onkoJarjestysNumeroOlemassa($kisa_id, $sarja_id, $jarjestys_numero)) {
+    $jarjestys_numero = rand(1, 100);
+  }
+
+  $stmt = $conn->prepare('INSERT INTO osallistuminen (userId, kisaId, sarjaId, lahtoAika, valiAika1, valiAika2, loppuAika, jarjestysNumero) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
   $stmt->bind_param(
-              'iiii',
-              $user_id, $kisa_id, $sarja_id, $jarjestys_numero
+              'iiissssi',
+              $user_id, $kisa_id, $sarja_id, $empt, $empt, $empt, $empt, $jarjestys_numero
   );
 
   if ($stmt->execute()) {
     header('Location: index.php');
   } else {
-    echo 'Ei toiminut';
+    include_once './sovellus_header.php';
+    echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: tallentaminen ei onnistunut</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
+    include_once './sovellus_footer.php';
+    return;
   }
 
   $conn->close();

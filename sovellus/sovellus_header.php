@@ -105,14 +105,16 @@ setlocale(LC_TIME, "fi_FI");
           <li class="nav-item">
             <a class="nav-link" href="../sovellus">Etusivu</a>
           </li>
+          <?php if ($_SESSION['user']['rooli'] === 1):  ?>
+            <li class="nav-item">
+              <a class="nav-link" href="uusi_kisa_sivu.php">Uusi kisa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="uusi_sarja.php">Uusi sarja</a>
+            </li>
+          <?php endif; ?>
           <li class="nav-item">
-            <a class="nav-link" href="uusi_kisa_sivu.php">Uusi kisa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="uusi_sarja.php">Uusi sarja</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Omat ilmoittautumiset</a>
+            <a class="nav-link" href="omat_ilmoittaumiset_sivu.php">Omat ilmoittautumiset</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profiili_sivu.php">Profiili</a>

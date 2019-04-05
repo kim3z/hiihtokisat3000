@@ -7,6 +7,7 @@
     include_once '../classes/Kisa.php';
     include_once '../classes/Sarja.php';
     include_once '../classes/User.php';
+    include_once '../classes/Osallistuminen.php';
 ?>
   <section id="sovellus-dashboard">
     <div class="container">
@@ -17,12 +18,17 @@
                   $kisat = Kisa::kaikkiKisat();
 
                   foreach ($kisat as $kisa) {
+
                     echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
 
                     if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
                         echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="muokkaa_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Muokkaa</a>'.' '. '<a href="poista_kisa.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista kisa</a>' . '</h4><br>';
                     } else {
-                        echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="ilmoittaudu_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Ilmoittaudu</a>'. '</h4><br>';
+                        if (!Osallistuminen::kayttajaOnJoRekisteroinyt($kisa['id'], $_SESSION['user']['id'])) {
+                            echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="ilmoittaudu_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Ilmoittaudu</a>'. '</h4><br>';
+                        } else {
+                            echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_ilmoittautuminen.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista ilmoittautuminen</a>'. '</h4><br>';
+                        }
                     }
 
                     $kisanSarjat = Sarja::sarjat($kisa['id']);
