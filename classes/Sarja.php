@@ -30,7 +30,7 @@ class Sarja {
 
         $conn->close();
 
-        return $kisanSarjat;   
+        return $kisanSarjat;
     }
 
     /**
@@ -41,7 +41,7 @@ class Sarja {
 
         $stmt = $conn->prepare('DELETE FROM sarja WHERE id = ?');
         $stmt->bind_param('i', $sarja_id);
-        
+
         if ($stmt->execute()) {
             $stmt->close();
             $conn->close();
@@ -67,5 +67,24 @@ class Sarja {
         }
 
         return false;
+    }
+
+    public static function haeSopivaSarja($kisa_id, $ika, $sukupuoli){
+      require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+      $sarja = null;
+      $stmt = $conn->prepare('SELECT * FROM sarja WHERE kisaId = ? AND max_ika >= ? AND min_ika <= ? AND sukupuoli = ?');
+      $stmt->bind_param('iiii', $kisa_id, $ika, $ika, $sukupuoli);
+      $stmt->execute();
+
+      $result = $stmt->get_result();
+
+      while($row = $result->fetch_assoc()) {
+          $sarja = $row;
+          break;
+      }
+
+      return $sarja;
+
     }
 }

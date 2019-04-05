@@ -7,8 +7,8 @@
   require_once '../kantayhteys.php';
   require_once '../classes/Sarja.php';
 
-  if (!isset($_POST['sarja_max']) || 
-      !isset($_POST['sarja_min']) || 
+  if (!isset($_POST['sarja_max']) ||
+      !isset($_POST['sarja_min']) ||
       !isset($_POST['sukupuoli']) ||
       !isset($_POST['kisaId'])
   ) {
@@ -40,7 +40,7 @@
   $stmt = $conn->prepare('INSERT INTO sarja (max_ika, min_ika, kisaId, sukupuoli) VALUES (?, ?, ?, ?)');
   $stmt->bind_param(
               'iiii',
-              $kilpailun_sarja_max, $kilpailun_sarja_min, $kilpailun_Id, $kilpailun_sukupuoli 
+              $kilpailun_sarja_max, $kilpailun_sarja_min, $kilpailun_Id, $kilpailun_sukupuoli
   );
 
   if ($stmt->execute()) {
