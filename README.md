@@ -2,7 +2,7 @@
 Ohjelmoinnin erikoiskurssi - Harjoitustyö
 
 - Alimu Ayiding (Verkkosovellus, tietokannan suunnittelu ja toteutus)
-- Kim Lehtinen (Verkkosovellus, tietokannan suunnittelu ja toteutus, tietoturva, UI)
+- Kim Lehtinen (Verkkosovellus, tietokannan suunnittelu ja toteutus, tietoturva, UI, versionhallinta)
 - Joonas Kyttänen (Verkkosovellus/Desktop app)
 - Santeri Kuurila (Desktop app)
 
@@ -13,6 +13,9 @@ Ohjelmoinnin erikoiskurssi - Harjoitustyö
 Ryhmä 4 virallinen tietokanta voidaan vaan käyttää technobotnialla.
 
 Testausta varten löytyy tilapäinen tietokanta Kimin palvelimella [http://lehtin.com](http://lehtin.com).
+
+## Kantayhteys
+Projektista löytyy tiedosto nimeltään "kantayhteys-esimerkki.php". Nimeä tämä tiedosto uudelleen -> "kantayhteys.php" ja tarkista tarvittavat tiedot.
 
 ## Näin Github toimii
 
