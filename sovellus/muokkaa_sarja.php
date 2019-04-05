@@ -1,7 +1,7 @@
 <?php
 
   /**
-    * @author Alimu ja Kim
+    * @author Kim
     */
   require_once './onko_admin_kayttaja.php';
   require_once '../kantayhteys.php';
@@ -10,14 +10,15 @@
   if (!isset($_POST['sarja_max']) ||
       !isset($_POST['sarja_min']) ||
       !isset($_POST['sukupuoli']) ||
-      !isset($_POST['kisaId'])
+      !isset($_POST['kisaId']) ||
+      !isset($_POST['sarjaId'])
   ) {
     include_once './sovellus_header.php';
     echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: täytä kaikki kentät</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
     include_once './sovellus_footer.php';
     return;
   }
-
+  $kilpailun_sarjaId = (int)$_POST['sarjaId'];
   $kilpailun_sarja_max = $_POST['sarja_max'];
   $kilpailun_sarja_min = $_POST['sarja_min'];
   $kilpailun_sukupuoli = $_POST['sukupuoli'];
@@ -37,17 +38,22 @@
     return;
   }
 
-  $stmt = $conn->prepare('INSERT INTO sarja (max_ika, min_ika, kisaId, sukupuoli) VALUES (?, ?, ?, ?)');
+  $stmt = $conn->prepare('UPDATE sarja SET max_ika = ?, min_ika = ?, kisaId = ?, sukupuoli = ? WHERE id = ?');
   $stmt->bind_param(
-              'iiii',
-              $kilpailun_sarja_max, $kilpailun_sarja_min, $kilpailun_Id, $kilpailun_sukupuoli
+              'iiiii',
+              $kilpailun_sarja_max, $kilpailun_sarja_min, $kilpailun_Id, $kilpailun_sukupuoli, $kilpailun_sarjaId
   );
+
 
   if ($stmt->execute()) {
     header('Location: index.php');
   } else {
-    echo 'Ei toiminut';
+    $conn->close();
+    include_once './sovellus_header.php';
+    echo '<div style="margin-top: 120px; text-align: center;"><h1>Error</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
+    include_once './sovellus_footer.php';
+    return;
   }
 
   $conn->close();
-?>
+ ?>

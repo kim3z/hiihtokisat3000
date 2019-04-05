@@ -3,7 +3,7 @@
   /**
     * @author Alimu ja Kim
     */
-
+  require_once './onko_admin_kayttaja.php';
   require_once '../kantayhteys.php';
 
   // Error jos jotain puuttuu
@@ -20,8 +20,8 @@
 
   $stmt = $conn->prepare('INSERT INTO kisa (nimi, date, aika) VALUES (?, ?, ?)');
   $stmt->bind_param(
-              'sss',
-              $kilpailun_nimi, $kilpailun_paiva, $kilpailun_aika
+          'sss',
+          $kilpailun_nimi, $kilpailun_paiva, $kilpailun_aika
   );
 
 
