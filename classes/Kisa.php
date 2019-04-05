@@ -29,6 +29,8 @@ class Kisa {
 
     /**
      * Poista kisa
+     * 
+     * @return boolean
      */
     public static function poistaKisa($kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
@@ -48,6 +50,11 @@ class Kisa {
         return false;
     }
 
+    /**
+     * Poista kisan kaikki sarjat
+     * 
+     * @return boolean
+     */
     public static function poistaKisanSarjat($kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
@@ -88,7 +95,7 @@ class Kisa {
     }
 
     /**
-     * Paivita kisa
+     * Hae kisa
      */
     public static function haeKisa($kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';

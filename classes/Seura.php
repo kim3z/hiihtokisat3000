@@ -7,7 +7,7 @@
 class Seura {
 
     /**
-     * Register new user
+     * Hae kaikki seurat
      */
     public static function kaikkiSeurat() {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';

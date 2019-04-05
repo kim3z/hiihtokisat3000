@@ -12,6 +12,11 @@ class User {
     public static $GENDER_MALE = 1;
     public static $GENDER_FEMALE = 2;
 
+    /**
+     * Paivita kayttajan profiili
+     * 
+     * @return boolean
+     */
     public static function updateUser($user) {
         require('../kantayhteys.php');
 
@@ -100,6 +105,9 @@ class User {
         return false;
     }
 
+    /**
+     * Get user by email
+     */
     public static function getUserByEmail($email) {
         require('../kantayhteys.php');
         $user = null;

@@ -54,6 +54,11 @@ class Sarja {
         return false;
     }
 
+    /**
+     * Katso onko sarja jo olemassa
+     * 
+     * @return boolean
+     */
     public static function onkoSarjaOlemassa($min_ika, $max_ika, $sukupuoli, $kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
@@ -69,6 +74,9 @@ class Sarja {
         return false;
     }
 
+    /**
+     * Hae kayttajalle sopiva sarja ian perusteella
+     */
     public static function haeSopivaSarja($kisa_id, $ika, $sukupuoli){
       require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 

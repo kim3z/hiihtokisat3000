@@ -5,7 +5,12 @@
   */
 
 class Osallistuminen {
-
+  
+  /**
+   * Katso onko olemassa ilmoittautunut kayttaja samalla jarjestysnumerolla
+   * 
+   * @return boolean
+   */
   public static function onkoJarjestysNumeroOlemassa($kisa_id, $sarja_id, $jarjestys_numero) {
       require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
@@ -21,6 +26,11 @@ class Osallistuminen {
       return false;
   }
 
+  /**
+   * Katso onko kayttaja jo rekisteroinyt kisaan
+   * 
+   * @return boolean
+   */
   public static function kayttajaOnJoRekisteroinyt($kisa_id, $user_id) {
     require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
