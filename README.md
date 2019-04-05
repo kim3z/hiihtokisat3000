@@ -1,10 +1,10 @@
 # hiihtokisat3000
 Ohjelmoinnin erikoiskurssi - Harjoitustyö
 
-- Alimu Ayiding
-- Santeri Kuurila
-- Joonas Kyttänen
-- Kim Lehtinen
+- Alimu Ayiding (Verkkosovellus, tietokannan suunnittelu ja toteutus)
+- Kim Lehtinen (Verkkosovellus, tietokannan suunnittelu ja toteutus, tietoturva, UI)
+- Joonas Kyttänen (Verkkosovellus/Desktop app)
+- Santeri Kuurila (Desktop app)
 
 ## Tietokanta
 
