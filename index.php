@@ -4,6 +4,9 @@
     */
   
   include_once './header.php';
+  include_once './classes/Kisa.php';
+  include_once './classes/Sarja.php';
+  include_once './classes/Osallistuminen.php';
 ?>
   <div class="hero-image">
     <div class="hero-text">
@@ -16,13 +19,39 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-            <h2>Otsikko</h2>
-            <p class="lead">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            <br><br>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            </div>
+            <h2>Kilpailut</h2>
+              <?php
+                  $kisat = Kisa::kaikkiKisat();
+
+                  foreach ($kisat as $kisa) {
+
+                    echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
+
+                    echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . '</h4><br>';
+
+                    $kisanSarjat = Sarja::sarjat($kisa['id']);
+                    if ($kisanSarjat) {
+                        echo '<p><strong>Sarjat:</strong></p>';
+                        echo '<table class="table"><tbody>';
+                        foreach ($kisanSarjat as $sarja) {
+                            echo '<tr>';
+                            if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
+                              echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+                              echo '<td><a href="tulosseuranta_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                            } else {
+                                echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+                                echo '<td><a href="tulosseuranta_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                            }
+                            echo '</tr>';
+                        }
+                        echo '</tbody></table>';
+                    } else {
+                        echo 'Sarjoja ei ole vielä lisätty';
+                    }
+
+                    echo '</div><br>';
+                  }
+               ?>
         </div>
     </div>
   </section>
