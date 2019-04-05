@@ -2,7 +2,7 @@
 Ohjelmoinnin erikoiskurssi - Harjoitustyö
 
 - Alimu Ayiding (Verkkosovellus, tietokannan suunnittelu ja toteutus)
-- Kim Lehtinen (Verkkosovellus, tietokannan suunnittelu ja toteutus, tietoturva, UI)
+- Kim Lehtinen (Verkkosovellus, tietokannan suunnittelu ja toteutus, tietoturva, UI, versionhallinta)
 - Joonas Kyttänen (Verkkosovellus/Desktop app)
 - Santeri Kuurila (Desktop app)
 
