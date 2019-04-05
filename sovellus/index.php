@@ -18,9 +18,9 @@
 
                   foreach ($kisat as $kisa) {
                     echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
-                    
+
                     if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
-                        echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_kisa.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista kisa</a>' . '</h4><br>';
+                        echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="muokkaa_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Muokkaa</a>'.' '. '<a href="poista_kisa.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista kisa</a>' . '</h4><br>';
                     } else {
                         echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . '</h4><br>';
                     }
@@ -54,7 +54,7 @@
                     echo '</div><br>';
                   }
                ?>
-            
+
             </div>
         </div>
     </div>

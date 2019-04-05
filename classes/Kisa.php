@@ -35,7 +35,7 @@ class Kisa {
 
         $stmt = $conn->prepare('DELETE FROM kisa WHERE id = ?');
         $stmt->bind_param('i', $kisa_id);
-        
+
         if ($stmt->execute()) {
             $stmt->close();
             $conn->close();
@@ -53,7 +53,7 @@ class Kisa {
 
         $stmt = $conn->prepare('DELETE FROM sarja WHERE kisaId = ?');
         $stmt->bind_param('i', $kisa_id);
-        
+
         if ($stmt->execute()) {
             $stmt->close();
             $conn->close();
@@ -85,6 +85,29 @@ class Kisa {
         $conn->close();
 
         return $kisat;
+    }
+
+    /**
+     * Paivita kisa
+     */
+    public static function haeKisa($kisa_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $kisa = null;
+
+        $stmt = $conn->prepare('SELECT * FROM kisa WHERE id = ?');
+        $stmt->bind_param('i', $kisa_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while($row = $result->fetch_assoc()) {
+            $kisa = $row;
+            break;
+        }
+        $stmt->close();
+        $conn->close();
+
+        return $kisa;
     }
 
 }
