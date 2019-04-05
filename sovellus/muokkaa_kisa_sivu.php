@@ -4,9 +4,9 @@
   require_once '../classes/Kisa.php';
 
   if (!isset($_GET['id'])) {
-      echo '<div style="margin-top: 120px; text-align: center;"><h1>Error:</h1> <p>kisa id parametri puuttuu</p><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
-      return;
-    }
+    echo '<div style="margin-top: 120px; text-align: center;"><h1>Error:</h1> <p>kisa id parametri puuttuu</p><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
+    return;
+  }
 
   $kisa = Kisa::haeKisa($_GET['id']);
 

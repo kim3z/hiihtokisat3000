@@ -27,7 +27,7 @@
 
                     echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
 
-                    echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . '</h4><br>';
+                    echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="tulosseuranta_kisa_sivu.php?kisa_id='. $kisa['id'] . '" class="btn btn-primary">Tulosseuranta (kaikki sarjat)</a>' . '</h4><br>';
 
                     $kisanSarjat = Sarja::sarjat($kisa['id']);
                     if ($kisanSarjat) {
@@ -37,10 +37,10 @@
                             echo '<tr>';
                             if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
                               echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
-                              echo '<td><a href="tulosseuranta_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                              echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
                             } else {
                                 echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
-                                echo '<td><a href="tulosseuranta_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                                echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
                             }
                             echo '</tr>';
                         }
