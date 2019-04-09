@@ -4,6 +4,10 @@
     require_once './classes/Kisa.php';
     require_once './classes/Sarja.php';
 
+    //
+    // Joonas: tama sivu on tulosseuranta yhden kisan (kisa_id) kaikille sarjoille samalla sivulla, saat toteuttaa taman
+    //
+
     if (!isset($_GET['kisa_id'])) {
         echo '<div style="margin-top: 120px; text-align: center;"><h1>Error:</h1> <p>kisa tai sarja id parametri puuttuu</p><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
         return;
