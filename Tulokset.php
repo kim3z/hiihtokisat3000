@@ -20,12 +20,6 @@
 	
 	
 ?>
-
-
-
-
-
-
 <section>
 	
    <div class="container">
@@ -33,7 +27,7 @@
        <div class="col-lg-12 mx-auto">
         <a class="btn btn-primary" href="tulosseuranta.php"> < Takaisin </a>
         <br><br>
-        <h2 >Tulokset: <?php echo utf8_encode ($kisa['nimi'] ).' '. $kisa['date'] .' '. $kisa['aika']; ?> </h2>
+        <h2 >Tulokset: <?php echo $kisa['nimi'] .' '. $kisa['date'] .' '. $kisa['aika']; ?> </h2>
 		
 		<?php
 		
@@ -49,7 +43,6 @@
 							$tiedot = haku::haeTiedot($kisa['id'],$sarja['id']);
 							$tite=[];
 							$tite2=[];
-							
 							
                             if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) 
 							{
@@ -111,8 +104,7 @@
 								
 					
 								}
-								
-								
+
 								//järjestää ajan mukaan
 								for ($k2=0; $k2<$k; $k2++)
 								{
@@ -127,8 +119,7 @@
 									}
 									
 								}
-								
-					
+
 								//täytetään taulu
 								foreach($tite2 as $result) 
 								{
@@ -140,19 +131,18 @@
 								
 									//haetaan nimi
 									$nimi = haku::haeNimi($result['userId']);
-									echo '<td > '. utf8_encode ($nimi['etunimi']) .' '.utf8_encode ($nimi['sukunimi']). ' </td>';
+									echo '<td > '. $nimi['etunimi'] .' '. $nimi['sukunimi']. ' </td>';
 									
 									//haetaan seura
 									$seuraid = haku::haeSeuraid($result['userId']);
 									$seura = haku::haeSeura($seuraid['seuraId']);
-									echo '<td>'. utf8_encode ($seura['nimi']). '</td>';
+									echo '<td>'. $seura['nimi'] . '</td>';
 									
 									echo '<td>'.  $result['loppuAika'] . '</td>';
 									echo '</tr>';
 								
 								}
-								
-								
+										
 								// Taulukko sisalto loppuu tassa
 								
 								echo '</tbody>';
@@ -245,13 +235,13 @@
 								
 									//haetaan nimi
 									$nimi = haku::haeNimi($result['userId']);
-									echo '<td> '. utf8_encode ($nimi['etunimi']) .' '.utf8_encode ($nimi['sukunimi']). ' </td>';
+									echo '<td> '. $nimi['etunimi'] .' '.$nimi['sukunimi']. ' </td>';
 									
 									
 									//haetaan seura
 									$seuraid = haku::haeSeuraid($result['userId']);
 									$seura = haku::haeSeura($seuraid['seuraId']);
-									echo '<td>'. utf8_encode ($seura['nimi']). '</td>';
+									echo '<td>'. $seura['nimi']. '</td>';
 									
 									echo '<td>'.  $result['loppuAika'] . '</td>';
 									echo '</tr>';
@@ -274,15 +264,12 @@
                         echo 'Sarjoja ei ole vielä lisätty';
                     }
                 echo '</div><br>';
-				
 				?>
 		<br><br>
-     
        </div>
      </div>
    </div>
 </section>
-
 <?php
      include_once './footer.php';
 ?>

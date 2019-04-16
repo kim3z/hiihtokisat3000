@@ -129,6 +129,29 @@ class User {
     }
 
     /**
+     * Get user by id
+     */
+    public static function getUserById($user_id) {
+        require('../kantayhteys.php');
+        $user = null;
+        $stmt = $conn->prepare('SELECT * FROM user WHERE id = ?');
+
+        $stmt->bind_param('i', $user_id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        while($row = $result->fetch_assoc()) {
+            if (isset($row)) {
+                $user = $row;
+                break;
+            }
+        }
+
+        return $user;
+    }
+
+    /**
      * Check if user already exists
      */
     protected static function exists($email) {

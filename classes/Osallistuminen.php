@@ -110,4 +110,27 @@ class Osallistuminen {
 
         return false;
     }
+
+    /**
+     * Poista osallistuja
+     * 
+     * @return boolean
+     */
+    public static function poistaOsallistuja($osallistuja_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $stmt = $conn->prepare('DELETE FROM osallistuminen WHERE id = ?');
+        $stmt->bind_param('i', $osallistuja_id);
+
+        if ($stmt->execute()) {
+            $stmt->close();
+            $conn->close();
+            return true;
+        }
+
+        $stmt->close();
+        $conn->close();
+
+        return false;
+    }
 }
