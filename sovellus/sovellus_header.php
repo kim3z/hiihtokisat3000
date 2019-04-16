@@ -103,7 +103,10 @@ setlocale(LC_TIME, "fi_FI");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../sovellus">Etusivu</a>
+            <a class="nav-link" href="/">Etusivu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../sovellus">Kilpailut</a>
           </li>
           <?php if ($_SESSION['user']['rooli'] === 1):  ?>
             <li class="nav-item">

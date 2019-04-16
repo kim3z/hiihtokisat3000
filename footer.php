@@ -7,6 +7,7 @@
   </footer>
   <script src="assets/jquery.js"></script>
   <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
   <script src="assets/hiihtokisat.js"></script>
 </body>
 </html>

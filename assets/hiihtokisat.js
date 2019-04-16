@@ -6,6 +6,7 @@
 $(document).ready(function() {
     initTulosseurantaKisaSarjaRefresh();
     initTulosseurantaKisaRefresh();
+    initTuloksetToPdf();
     initRegister();
     initLogin();
 });
@@ -31,6 +32,41 @@ function initTulosseurantaKisaRefresh() {
           console.log('reloading page: tulosseuranta kisa...');
           location.reload();
         }, 10000);
+    }
+}
+
+function initTuloksetToPdf() {
+    if ($('#tulokset-pdf-area').length) {
+        $('#generate-tulokset-pdf').click(function() {
+            console.log('generating pdf...');
+            
+            var source = $('#tulokset-pdf-area')[0];
+            var pdfTitle = 'tulokset';
+
+            if ($('#tulokset-pdf-title').length) {
+                pdfTitle = $('#tulokset-pdf-title')[0].innerHTML;
+            }
+
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            
+            margins = {
+                top: 40,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+            pdf.fromHTML(
+                source,
+                margins.left,
+                margins.top, {
+                  width: margins.width
+                },
+                function(dispose) {
+                  pdf.save(pdfTitle + '.pdf');
+                },
+                margins
+            );
+        });
     }
 }
 
