@@ -3,6 +3,7 @@
  */
 $(document).ready(function() {
     initTulosseurantaKisaSarjaRefresh();
+    initTulosseurantaKisaRefresh();
     initRegister();
     initLogin();
 });
@@ -11,6 +12,15 @@ function initTulosseurantaKisaSarjaRefresh() {
     if ($('#tulosseuranta_kisa_sarja_starts').length) {
         setTimeout(function() {
           console.log('reloading page: tulosseuranta kisa sarja...');
+          location.reload();
+        }, 10000);
+    }
+}
+
+function initTulosseurantaKisaRefresh() {
+    if ($('#tulosseuranta_kisa_starts').length) {
+        setTimeout(function() {
+          console.log('reloading page: tulosseuranta kisa...');
           location.reload();
         }, 10000);
     }

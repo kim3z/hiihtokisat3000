@@ -23,6 +23,7 @@
      <div class="row">
        <div class="col-lg-12 mx-auto">
         <a class="btn btn-primary" href="/"> < Takaisin </a>
+		<div id="tulosseuranta_kisa_starts"></div>
         <br><br>
         <h2>Liveseuranta: <?php echo $kisa['nimi'] .' '. $kisa['date'] .' '. $kisa['aika']; ?> kaikki sarjat</h2>
         <div class="table-responsive table-body">
