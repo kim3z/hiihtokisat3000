@@ -75,7 +75,7 @@ class Osallistuminen {
      * 
      * @return boolean
      */
-    public static function kayttajaOnJoRekisteroinyt($kisa_id, $user_id) {
+    public static function kayttajaOnJoIlmoittautunut($kisa_id, $user_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
         $stmt = $conn->prepare('SELECT * FROM osallistuminen WHERE kisaId = ? AND userId = ?');

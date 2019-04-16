@@ -1,4 +1,13 @@
 <?php
+    /**
+       * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
+       * 
+       * Rekisteröidy lomake
+       * 
+       * Ajax requesti löytyy tiedostosta hiihtokisat.js funktio initRegister().
+       * 
+       */
+
     include_once './header.php';
     include_once './classes/Seura.php'
 ?>

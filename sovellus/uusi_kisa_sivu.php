@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
               <label for="kilpailun_paiva">Kilpailun päivä</label>
-              <input required class="form-control" type="date" name="kilpailun_paiva" min= <?php echo date('Y-m-d'); ?>   />
+              <input required class="form-control" type="date" name="kilpailun_paiva" min=<?php echo date('Y-m-d'); ?>   />
           </div>
           <div class="form-group">
               <label for="kilpailun_aika">Kilpailun aika</label>

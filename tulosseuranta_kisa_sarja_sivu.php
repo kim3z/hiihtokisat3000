@@ -1,4 +1,8 @@
 <?php
+	/**
+	 * Yksittäisen sarjan tulosseuranta sivu.
+	 */
+
     include_once './header.php';
     require_once './classes/Osallistuminen.php';
     require_once './classes/Kisa.php';

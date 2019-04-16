@@ -41,9 +41,18 @@
                 echo 'Sarja ei löydetty';
               }
 
+              $kisaDate = $kisa['date'];
+              $kisaAika = $kisa['aika'];
+              $eiSaaPoistaaEnaa = date('Y-m-d H:i:s', strtotime("$kisaDate $kisaAika")) < date('Y-m-d H:i:s');
+
               echo '<tr>';
               echo '<td>' . $kisa['nimi'] .' '. $kisa['date'] .' '. $kisa['aika'] . '</td>';
-              echo '<td>' . '<a href="poista_ilmoittautuminen.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+              if ($eiSaaPoistaaEnaa) {
+                echo '<td>Poistaminen liian myöhäistä</td>';
+              } else {
+                echo '<td>' . '<a href="poista_ilmoittautuminen.php?kisa_id='. $kisa['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+              }
+              
               echo '</tr>';
             }
             echo '</tbody></table>';

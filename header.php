@@ -121,7 +121,7 @@ session_start();
             <a class="nav-link" href="/">Etusivu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/tulosseuranta">Tulosseuranta</a>
+            <a class="nav-link" href="tulosseuranta.php">Tulosseuranta</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/sovellus">Sovellus</a>

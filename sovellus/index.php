@@ -24,10 +24,27 @@
                     if ($_SESSION['user']['rooli'] === User::$ADMIN_USER) {
                         echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="muokkaa_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Muokkaa</a>'.' '. '<a href="poista_kisa.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista kisa</a>' . '</h4><br>';
                     } else {
-                        if (!Osallistuminen::kayttajaOnJoRekisteroinyt($kisa['id'], $_SESSION['user']['id'])) {
-                            echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="ilmoittaudu_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Ilmoittaudu</a>'. '</h4><br>';
+                        // Katso onko ilmoittautuminen päättynyt jo
+                        // Katso onko käyttäjä jo ilmoittautunut
+                        $kisaDate = $kisa['date'];
+                        $kisaAika = $kisa['aika'];
+                        if (date('Y-m-d H:i:s', strtotime("$kisaDate $kisaAika")) < date('Y-m-d H:i:s')) {
+                            echo '<h4>' . $kisa['nimi'] .' '.$kisa['date'].' '.$kisa['aika'] . '</h4>';
+                            if (Osallistuminen::kayttajaOnJoIlmoittautunut($kisa['id'], $_SESSION['user']['id'])) {
+                                echo '<div class="alert alert-success" role="alert">
+                                        Ilmoittautuminen päättynyt, olit ilmoittautunut
+                                      </div>';
+                            } else {
+                                echo '<div class="alert alert-danger" role="alert">
+                                        Ilmoittautuminen päättynyt
+                                      </div>';
+                            }
                         } else {
-                            echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_ilmoittautuminen.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista ilmoittautuminen</a>'. '</h4><br>';
+                            if (!Osallistuminen::kayttajaOnJoIlmoittautunut($kisa['id'], $_SESSION['user']['id'])) {
+                                echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="ilmoittaudu_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Ilmoittaudu</a>'. '</h4><br>';
+                            } else {
+                                echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_ilmoittautuminen.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista ilmoittautuminen</a>'. '</h4><br>';
+                            }
                         }
                     }
 

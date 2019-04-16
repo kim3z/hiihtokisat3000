@@ -1,6 +1,12 @@
 <?php 
   /**
     * @author Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
+    * 
+    * SOVELLUKSEN LANDING PAGE
+    *
+    * Tulostetaan kaikki kisat ja niiden sarjat.
+    * Linkit kisan kaikki sarjojen tulosseurantaan tai yksittäisen sarjan tulosseurantaan.
+    *
     */
   
   include_once './header.php';

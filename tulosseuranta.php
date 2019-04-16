@@ -13,10 +13,10 @@
 			 <?php 
 			 
 			//päivämäärä 
-			//$pvm = date("Y-m-d");  //pvm tänään
+			$pvm = date("Y-m-d");  //pvm tänään
 			//$pvm = date("2019-04-29"); //esimerkki1
 			// $pvm = date("2019-05-05"); //esimerrki2
-			$pvm = date("2019-08-05"); //esimerrki3
+			//$pvm = date("2019-08-05"); //esimerrki3
 			 ?>
 		
           <h2>Kisat  <?php echo $pvm ?> </h2>

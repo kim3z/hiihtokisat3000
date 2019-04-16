@@ -6,8 +6,12 @@
 
   require_once './onko_tavallinen_kayttaja.php';
   require_once '../kantayhteys.php';
+  require_once '../classes/Kisa.php';
   require_once '../classes/Sarja.php';
   require_once '../classes/Osallistuminen.php';
+
+  date_default_timezone_set('Europe/Helsinki');
+  setlocale(LC_TIME, "fi_FI");
 
   if (!isset($_POST['kisa_Id']) ||
       !isset($_POST['sarja_Id']) ||
@@ -31,7 +35,17 @@
   $user_id = (int)$_POST['user_Id'];
   $empt = '';
 
-  if (Osallistuminen::kayttajaOnJoRekisteroinyt($kisa_id, $user_id)) {
+  $kisa = Kisa::haeKisa($kisa_id);
+  $kisaDate = $kisa['date'];
+  $kisaAika = $kisa['aika'];
+  if (date('Y-m-d H:i:s', strtotime("$kisaDate $kisaAika")) < date('Y-m-d H:i:s')) {
+    include_once './sovellus_header.php';
+    echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: ilmoittautuminen on jo päättynyt</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
+    include_once './sovellus_footer.php';
+    return;
+  }
+
+  if (Osallistuminen::kayttajaOnJoIlmoittautunut($kisa_id, $user_id)) {
     include_once './sovellus_header.php';
     echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: olet jo ilmoittautunut</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
     include_once './sovellus_footer.php';

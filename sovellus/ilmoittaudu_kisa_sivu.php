@@ -19,7 +19,7 @@
     return;
   }
 
-  if (Osallistuminen::kayttajaOnJoRekisteroinyt($kisa['id'], $_SESSION['user']['id'])) {
+  if (Osallistuminen::kayttajaOnJoIlmoittautunut($kisa['id'], $_SESSION['user']['id'])) {
     echo '<div style="margin-top: 120px; text-align: center;"><h1>Error: olet jo ilmoittautunut</h1><br> <a class="btn btn-primary" href="../sovellus"> < Takaisin</a><br><br></div>';
     include_once './sovellus_footer.php';
     return;

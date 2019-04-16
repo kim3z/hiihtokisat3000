@@ -1,6 +1,8 @@
 /**
  * Author: Kim Lehtinen <kim.lehtinen@student.uwasa.fi>
  */
+
+
 $(document).ready(function() {
     initTulosseurantaKisaSarjaRefresh();
     initTulosseurantaKisaRefresh();
@@ -8,6 +10,9 @@ $(document).ready(function() {
     initLogin();
 });
 
+/**
+ * Päivitä yksittäisen sarjan tulosseuranta joka 10s.
+ */
 function initTulosseurantaKisaSarjaRefresh() {
     if ($('#tulosseuranta_kisa_sarja_starts').length) {
         setTimeout(function() {
@@ -17,6 +22,9 @@ function initTulosseurantaKisaSarjaRefresh() {
     }
 }
 
+/**
+ * Päivitä kisan kaikki sarjojen tulosseuranta joka 10s.
+ */
 function initTulosseurantaKisaRefresh() {
     if ($('#tulosseuranta_kisa_starts').length) {
         setTimeout(function() {
@@ -26,6 +34,9 @@ function initTulosseurantaKisaRefresh() {
     }
 }
 
+/**
+ * Rekisteröi käyttäjä ajax request
+ */
 function initRegister() {
     $('#register-form').submit(function(e) {
         e.preventDefault();
@@ -67,6 +78,9 @@ function initRegister() {
     });
 }
 
+/**
+ * Kirjaudu sisään ajax request
+ */
 function initLogin() {
     $('#login-form').submit(function(e) {
         e.preventDefault();
