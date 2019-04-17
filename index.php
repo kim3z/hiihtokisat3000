@@ -43,10 +43,10 @@
                             echo '<tr>';
                             if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
                               echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
-                              echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                              echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a>' . ' ' . '<a href="lahtolista_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Lahtolista</a></td>';
                             } else {
                                 echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
-                                echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a></td>';
+                                echo '<td><a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulosseuranta</a>' . ' ' . '<a href="lahtolista_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Lahtolista</a></td>';
                             }
                             echo '</tr>';
                         }

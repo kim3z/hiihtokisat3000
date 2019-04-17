@@ -18,7 +18,7 @@ class User {
      * @return boolean
      */
     public static function updateUser($user) {
-        require('../kantayhteys.php');
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
         $stmt = $conn->prepare('UPDATE user SET etunimi = ?, sukunimi = ?, email = ?, seuraId = ?, syntymaAika = ?, sukupuoli = ? WHERE id = ?');
         $stmt->bind_param(
@@ -51,7 +51,7 @@ class User {
             return false;
         }
 
-        require('../kantayhteys.php');
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
         $stmt = $conn->prepare('INSERT INTO user (etunimi, sukunimi, email, salasana, seuraId, syntymaAika, sukupuoli, rooli) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
         $stmt->bind_param(
@@ -80,7 +80,7 @@ class User {
      * User login
      */
     public static function login($given_email, $given_psw) {
-        require('../kantayhteys.php');
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
         $user = null;
         $stmt = $conn->prepare('SELECT * FROM user WHERE email = ?');
 
@@ -109,7 +109,7 @@ class User {
      * Get user by email
      */
     public static function getUserByEmail($email) {
-        require('../kantayhteys.php');
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
         $user = null;
         $stmt = $conn->prepare('SELECT * FROM user WHERE email = ?');
 
@@ -132,7 +132,7 @@ class User {
      * Get user by id
      */
     public static function getUserById($user_id) {
-        require('../kantayhteys.php');
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
         $user = null;
         $stmt = $conn->prepare('SELECT * FROM user WHERE id = ?');
 

@@ -29,7 +29,7 @@ class Osallistuminen {
     }
 
     /**
-     * Kayttajan osallistumiset
+     * Hae sarjan kaikki osallistujat
      */
     public static function kisaSarjaOsallistujat($kisa_id, $sarja_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
@@ -37,6 +37,28 @@ class Osallistuminen {
         $osallistujat = [];
 
         $stmt = $conn->prepare('SELECT * FROM osallistuminen WHERE kisaId = ? AND sarjaId = ?');
+        $stmt->bind_param('ii', $kisa_id, $sarja_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while($row = $result->fetch_assoc()) {
+            array_push($osallistujat, $row);
+        }
+        $stmt->close();
+        $conn->close();
+
+        return $osallistujat;
+    }
+
+    /**
+     * Hae sarjan kaikki osallistujat
+     */
+    public static function kisaSarjaOsallistujatLahtolista($kisa_id, $sarja_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $osallistujat = [];
+
+        $stmt = $conn->prepare('SELECT * FROM osallistuminen WHERE kisaId = ? AND sarjaId = ? ORDER BY jarjestysNumero ASC');
         $stmt->bind_param('ii', $kisa_id, $sarja_id);
         $stmt->execute();
         $result = $stmt->get_result();

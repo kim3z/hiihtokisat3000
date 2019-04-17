@@ -7,6 +7,7 @@ $(document).ready(function() {
     initTulosseurantaKisaSarjaRefresh();
     initTulosseurantaKisaRefresh();
     initTuloksetToPdf();
+    initLahtolistaToPdf();
     initRegister();
     initLogin();
 });
@@ -35,16 +36,57 @@ function initTulosseurantaKisaRefresh() {
     }
 }
 
+/**
+ * Tulokset to pdf
+ */
 function initTuloksetToPdf() {
     if ($('#tulokset-pdf-area').length) {
         $('#generate-tulokset-pdf').click(function() {
-            console.log('generating pdf...');
+            console.log('generating pdf from tulokset...');
             
             var source = $('#tulokset-pdf-area')[0];
             var pdfTitle = 'tulokset';
 
             if ($('#tulokset-pdf-title').length) {
                 pdfTitle = $('#tulokset-pdf-title')[0].innerHTML;
+            }
+
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            
+            margins = {
+                top: 40,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+            pdf.fromHTML(
+                source,
+                margins.left,
+                margins.top, {
+                  width: margins.width
+                },
+                function(dispose) {
+                  pdf.save(pdfTitle + '.pdf');
+                },
+                margins
+            );
+        });
+    }
+}
+
+/**
+ * Lahtolista to pdf
+ */
+function initLahtolistaToPdf() {
+    if ($('#lahtolista-pdf-area').length) {
+        $('#generate-lahtolista-pdf').click(function() {
+            console.log('generating pdf from lahtolista...');
+            
+            var source = $('#lahtolista-pdf-area')[0];
+            var pdfTitle = 'lahtolista';
+
+            if ($('#lahtolista-pdf-title').length) {
+                pdfTitle = $('#lahtolista-pdf-title')[0].innerHTML;
             }
 
             var pdf = new jsPDF('p', 'pt', 'letter');
