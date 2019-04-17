@@ -39,37 +39,30 @@
        <div class="col-lg-12 mx-auto">
         <a class="btn btn-primary" href="tulosseuranta.php"> < Takaisin </a>
         <br><br>
-		<?php 
-			$pdfTitle = 'tulokset';
-			if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
-				$pdfTitle = 'Tulokset-'.$kisa['nimi'].'-'.$kisa['date'].'-'.$kisa['aika'].'-miehet-'. $sarja['min_ika'] . '-' . $sarja['max_ika'];
-			} else {
-				$pdfTitle = 'Tulokset-'.$kisa['nimi'].'-'.$kisa['date'].'-'.$kisa['aika'].'-naiset-'. $sarja['min_ika'] . '-' . $sarja['max_ika'];
-			}
-		?>
-		<div id="tulokset-pdf-title" style="display: none;"><?php echo $pdfTitle; ?></div>
-		<button class="btn btn-success" id="generate-tulokset-pdf">PDF</button><br>
-		<div id="tulokset-pdf-area">
-        <h2>Tulokset: <?php echo utf8_encode ($kisa['nimi'] ).' '. $kisa['date'] .' '. $kisa['aika']; ?> </h2>
+        <h2 >Tulokset: <?php echo utf8_encode ($kisa['nimi'] ).' '. $kisa['date'] .' '. $kisa['aika']; ?> </h2>
 		
 		<?php
 		
 		 echo '<div class=" rounded table-responsive table-body" style="padding: 1rem; " Content-Type:" text/html; charset=UTF-8">';
                
 				$kisanSarjat = Sarja::sarjat($kisa['id']);
-                if ($sarja) {
+                    if ($sarja) {
+                  
+                        
+                            echo '<tr>';
 							
-						$tiedot = haku::haeTiedot($kisa['id'],$sarja['id']);
-						$tite=[];
-						$tite2=[];
-						
-						if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
-							echo '<p>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</p>';
-						} else {
-							echo '<p>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</p>';
-						}
-						
-						// Taulukko alkaa tassa
+							$tiedot = haku::haeTiedot($kisa['id'],$sarja['id']);
+							$tite=[];
+							$tite2=[];
+							
+							
+                            if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) 
+							{
+								
+								
+								echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+							  
+								// Taulukko alkaa tassa
 								echo '<table class="table">';
 								// Sarakkeet
 								echo '<thead>
@@ -152,12 +145,12 @@
 								
 									//haetaan nimi
 									$nimi = haku::haeNimi($result['userId']);
-									echo '<td > '. $nimi['etunimi'] .' '.$nimi['sukunimi']. ' </td>';
+									echo '<td > '. utf8_encode ($nimi['etunimi']) .' '.utf8_encode ($nimi['sukunimi']). ' </td>';
 									
 									//haetaan seura
 									$seuraid = haku::haeSeuraid($result['userId']);
 									$seura = haku::haeSeura($seuraid['seuraId']);
-									echo '<td>'. $seura['nimi']. '</td>';
+									echo '<td>'. utf8_encode ($seura['nimi']). '</td>';
 									
 									echo '<td>'.  $result['loppuAika'] . '</td>';
 									echo '</tr>';
@@ -171,13 +164,123 @@
 								
 								// Taulukko loppuu tassa
 								echo '</table>';
-                } else {
-                    echo 'Sarjoja ei ole vielä lisätty';
-                }
+                              
+                            } else {
+                                echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] .' '.  $sarja['id'] .'</td>';
+								
+								// Taulukko alkaa tassa
+								echo '<table class="table">';
+								// Sarakkeet
+								echo '<thead>
+								
+								<tr>
+								<th scope="col">Sija</th>
+								<th scope="col">Osallistuja</th>
+								<th scope="col">Seura</th>
+								<th scope="col">Aika</th>
+								</tr>
+								</thead>';
+								
+								// Taulukko sisalto alkaa tassa
+								echo '<tbody>';
+								
+								// Uusi rivi, for loopin sisalle
+								
+								$i=1; //sijoitukset
+								$k=0;
+								
+								//Lasketaan aika
+								foreach($tiedot as $result) {
+									
+									$tite2[$k]=$result;
+									$datetime1 = new DateTime($tite2[$k]['lahtoAika']);
+									$datetime2 = new DateTime($tite2[$k]['loppuAika']);
+									if ($tite2[$k]['loppuAika'] > $tite2[$k]['lahtoAika'])
+									{
+									$aika = $datetime1->diff($datetime2);
+									$tite2[$k]['loppuAika']=$aika->format('%H').':'.$aika->format('%I').':'.$aika->format('%S');
+									
+									}
+									
+									
+									else
+									{	
+										if ($tite2[$k]['loppuAika'] == $tite2[$k]['lahtoAika'])
+										{
+										
+										$tite2[$k]['loppuAika']='Aikaa ei saatavilla';
+									
+										}
+										else
+										{
+										$tite2[$k]['loppuAika']='Aikaa ei saatavilla';
+										}
+									}
+									$k++;
+								
+					
+								}
+								
+								
+								//järjestää ajan mukaan
+								for ($k2=0; $k2<$k; $k2++)
+								{
+								
+									if ($k2!=0 && $tite2[$k2]['loppuAika'] < $tite2[$k2-1]['loppuAika'] )
+									{
+										$v=$tite2[$k2-1];
+										$tite2[$k2-1]=$tite2[$k2];
+										$tite2[$k2]=$v;
+										$k2=0;
+										
+									}
+									
+								}
+								
+					
+								//täytetään taulu
+								foreach($tite2 as $result) 
+								{
+									$tite[$k]=$result;
+									$k++;
+									
+									echo '<tr>';
+									echo '<td>'.$i.'</td>';
+									$i++;
+								
+									//haetaan nimi
+									$nimi = haku::haeNimi($result['userId']);
+									echo '<td> '. utf8_encode ($nimi['etunimi']) .' '.utf8_encode ($nimi['sukunimi']). ' </td>';
+									
+									
+									//haetaan seura
+									$seuraid = haku::haeSeuraid($result['userId']);
+									$seura = haku::haeSeura($seuraid['seuraId']);
+									echo '<td>'. utf8_encode ($seura['nimi']). '</td>';
+									
+									echo '<td>'.  $result['loppuAika'] . '</td>';
+									echo '</tr>';
+								
+								}
+								
+	
+								// Taulukko sisalto loppuu tassa
+								echo '</tbody>';
+								
+								
+								// Taulukko loppuu tassa
+								echo '</table>';
+                                
+                            }
+                            echo '</tr>';
+                        
+                        echo '</tbody></table>';
+                    } else {
+                        echo 'Sarjoja ei ole vielä lisätty';
+                    }
                 echo '</div><br>';
 				
 				?>
-			</div>
 		<br><br>
      
        </div>
