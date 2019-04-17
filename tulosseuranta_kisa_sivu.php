@@ -132,12 +132,12 @@
 								
 									//haetaan nimi
 									$nimi = haku::haeNimi($result['userId']);
-									echo '<td > '. utf8_encode ($nimi['etunimi']) .' '.utf8_encode ($nimi['sukunimi']). ' </td>';
+									echo '<td > '. $nimi['etunimi'] .' '.$nimi['sukunimi']. ' </td>';
 									
 									//haetaan seura
 									$seuraid = haku::haeSeuraid($result['userId']);
 									$seura = haku::haeSeura($seuraid['seuraId']);
-									echo '<td>'. utf8_encode ($seura['nimi']). '</td>';
+									echo '<td>'. $seura['nimi']. '</td>';
 									
 								
 									echo '<td>'.  $result['lahtoAika'] . '</td>';
