@@ -116,9 +116,11 @@ setlocale(LC_TIME, "fi_FI");
               <a class="nav-link" href="uusi_sarja.php">Uusi sarja</a>
             </li>
           <?php endif; ?>
+		  <?php if ($_SESSION['user']['rooli'] === 2):  ?>
           <li class="nav-item">
             <a class="nav-link" href="omat_ilmoittaumiset_sivu.php">Omat ilmoittautumiset</a>
           </li>
+		   <?php endif; ?>
           <li class="nav-item">
             <a class="nav-link" href="profiili_sivu.php">Profiili</a>
           </li>

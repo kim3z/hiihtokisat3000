@@ -39,7 +39,34 @@ class Sarja {
     public static function poistaSarja($sarja_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
+        if (self::poistaSarjanOsallistumiset($sarja_id)) {
+            //
+        } else {
+            return false;
+        }
+        
         $stmt = $conn->prepare('DELETE FROM sarja WHERE id = ?');
+        $stmt->bind_param('i', $sarja_id);
+
+        if ($stmt->execute()) {
+            $stmt->close();
+            $conn->close();
+            return true;
+        }
+
+        $stmt->close();
+        $conn->close();
+
+        return false;
+    }
+
+    /**
+     * Poista sarjaan osallistuneen
+     */
+    protected static function poistaSarjanOsallistumiset($sarja_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $stmt = $conn->prepare('DELETE FROM osallistuminen WHERE sarjaId = ?');
         $stmt->bind_param('i', $sarja_id);
 
         if ($stmt->execute()) {

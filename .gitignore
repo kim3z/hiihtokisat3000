@@ -1,4 +1,7 @@
 .idea/
 .vagrant/
 kantayhteys.php
+kantayhteys-production.php
 sovellus/kantayhteys.php
+xampp/
+img/

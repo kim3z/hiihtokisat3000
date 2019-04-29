@@ -17,7 +17,7 @@
   <div class="hero-image">
     <div class="hero-text">
       <br><br>
-      <h1 style="font-size: 80px;">Kråkolman Puhti</h1>
+      <h1 style="font-size: 80px;">Kråkholman Puhti</h1>
     </div>
   </div>
 

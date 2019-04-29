@@ -28,11 +28,11 @@
           </div>
           <div class="form-group">
               <label for="kilpailun_paiva">Kilpailun päivä</label>
-              <input required class="form-control" type="date" name="kilpailun_paiva" value=" <?php echo $kisa['date']; ?>"   />
+              <input required class="form-control" type="date" name="kilpailun_paiva" value="<?php echo $kisa['date']; ?>"   />
           </div>
           <div class="form-group">
               <label for="kilpailun_aika">Kilpailun aika</label>
-              <input required class="form-control" type="time" name="kilpailun_aika"  value=" <?php echo $kisa['aika']; ?>" />
+              <input required class="form-control" type="time" name="kilpailun_aika"  value="<?php echo $kisa['aika']; ?>" />
           </div>
           <input type="hidden" name="kilpailun_id" value="<?php echo $kisa['id']; ?>">
           <input type="submit" class="btn btn-primary" value="Submit" />

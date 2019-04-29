@@ -33,7 +33,7 @@
   $kisa_id = (int)$_POST['kisa_Id'];
   $sarja_id = (int)$_POST['sarja_Id'];
   $user_id = (int)$_POST['user_Id'];
-  $empt = '';
+  $empt = '00:00:00';
 
   $kisa = Kisa::haeKisa($kisa_id);
   $kisaDate = $kisa['date'];

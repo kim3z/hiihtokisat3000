@@ -38,7 +38,7 @@
 					
                 //ruutu + tiedot
                 echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
-                echo '<h4>' . utf8_encode ($kisa['nimi']).'   '.$kisa['date'].'   '.$kisa['aika'] .  '</h4><br>';
+                echo '<h4>' . $kisa['nimi'].'   '.$kisa['date'].'   '.$kisa['aika'] .  '</h4><br>';
 				
 				echo '<td>' . '<a href="tulosseuranta_kisa_sivu.php?kisa_id='. $kisa['id'] . '" class="btn btn-primary">Liveseuranta (kaikki sarjat)</a>' .'</td>';
 				echo "\t";
@@ -147,7 +147,26 @@
 					{
 						//ruutu + tiedot 
 						echo '<div class="border rounded table-responsive table-body" style="padding: 1rem;">';
-						echo '<h4>' . utf8_encode ($kisa['nimi']) .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="Tulokset.php?kisa_id='. $kisa['id'] . '" class="btn btn-primary">Tulokset</a>' . '</h4><br>';
+						echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="Tulokset.php?kisa_id='. $kisa['id'] . '" class="btn btn-primary">Tulokset</a>' . '</h4><br>';
+						$kisanSarjat = Sarja::sarjat($kisa['id']);
+						if ($kisanSarjat) {
+							echo '<p><strong>Sarjat:</strong></p>';
+							echo '<table class="table"><tbody>';
+							foreach ($kisanSarjat as $sarja) {
+								echo '<tr>';
+								if ($sarja['sukupuoli'] === Sarja::$SUKUPUOLI_MIES) {
+								  echo '<td>POJAT/MIEHET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+								  echo '<td>' . '<a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] .'&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Liveseuranta</a>' ."\t".'<a href="TuloksetSarja.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] .'" class="btn btn-primary">Tulokset</a>' . "\t" . '<a href="lahtolista_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Lahtolista</a></td>';
+								} else {
+									echo '<td>TYTÖT/NAISET ' .  $sarja['min_ika'] . '-' . $sarja['max_ika'] . '</td>';
+									echo '<td>' . '<a href="tulosseuranta_kisa_sarja_sivu.php?kisa_id='. $kisa['id'] .'&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Liveseuranta</a>' ."\t".'<a href="TuloksetSarja.php?kisa_id='. $kisa['id'] .'&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Tulokset</a>' . "\t" . '<a href="lahtolista_sivu.php?kisa_id='. $kisa['id'] . '&sarja_id=' . $sarja['id'] . '" class="btn btn-primary">Lahtolista</a></td>';
+								}
+								echo '</tr>';
+							}
+							echo '</tbody></table>';
+						} else {
+							echo '<div><br>Sarjoja ei ole vielä lisätty</div>';
+						}
 						echo '</div><br>';
 						$i=0;
 					

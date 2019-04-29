@@ -33,7 +33,7 @@
    <div class="container">
      <div class="row">
        <div class="col-lg-12 mx-auto">
-        <a class="btn btn-primary" href="/"> < Takaisin </a>
+        <a class="btn btn-primary" href="javascript:history.go(-1)"> < Takaisin </a>
 		<div id="tulosseuranta_kisa_sarja_starts"></div>
         <br><br>
         <h2>Liveseuranta: 

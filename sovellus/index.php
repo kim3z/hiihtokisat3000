@@ -1,6 +1,8 @@
 <?php
   /**
     * @author Kim ja Alimu
+    * Tassa tulostetaan kaikki kisat ja niiden sarjat.
+    * Näytetään myos kayttajalle ilmoittautumis status.
     */
     require_once './onko_tavallinen_kayttaja.php';
     include_once './sovellus_header.php';
@@ -12,7 +14,7 @@
   <section id="sovellus-dashboard">
     <div class="container">
         <div class="row">
-            <di class="col-lg-8 mx-auto">
+            <div class="col-lg-8 mx-auto">
             <h2>Kilpailut</h2>
               <?php
                   $kisat = Kisa::kaikkiKisat();
@@ -43,7 +45,7 @@
                             if (!Osallistuminen::kayttajaOnJoIlmoittautunut($kisa['id'], $_SESSION['user']['id'])) {
                                 echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="ilmoittaudu_kisa_sivu.php?id='. $kisa['id'] . '" class="btn btn-primary">Ilmoittaudu</a>'. '</h4><br>';
                             } else {
-                                echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_ilmoittautuminen.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista ilmoittautuminen</a>'. '</h4><br>';
+                                echo '<h4>' . $kisa['nimi'] .'   '.$kisa['date'].'   '.$kisa['aika'] . ' ' . '<a href="poista_ilmoittautuminen.php?kisa_id='. $kisa['id'] . '" class="btn btn-danger">Poista ilmoittautuminen</a>'. '</h4><br>';
                             }
                         }
                     }

@@ -58,7 +58,34 @@ class Kisa {
     public static function poistaKisanSarjat($kisa_id) {
         require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
 
+        if (self::poistaKisannOsallistumiset($kisa_id)) {
+            //
+        } else {
+            return false;
+        }
+
         $stmt = $conn->prepare('DELETE FROM sarja WHERE kisaId = ?');
+        $stmt->bind_param('i', $kisa_id);
+
+        if ($stmt->execute()) {
+            $stmt->close();
+            $conn->close();
+            return true;
+        }
+
+        $stmt->close();
+        $conn->close();
+
+        return false;
+    }
+
+    /**
+     * Poista sarjaan osallistuneen
+     */
+    protected static function poistaKisannOsallistumiset($kisa_id) {
+        require $_SERVER['DOCUMENT_ROOT'] . '/kantayhteys.php';
+
+        $stmt = $conn->prepare('DELETE FROM osallistuminen WHERE kisaId = ?');
         $stmt->bind_param('i', $kisa_id);
 
         if ($stmt->execute()) {

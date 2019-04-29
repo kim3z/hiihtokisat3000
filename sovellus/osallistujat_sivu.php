@@ -71,14 +71,14 @@
                 </thead>';
 
             foreach ($osallistujat as $osallistuja) {
-                $user = User::getUserById($osallistuja['id']);
+                $user = User::getUserById($osallistuja['userId']);
                 $seura = Seura::seuraNimi($user['seuraId']);
                 echo '<tr>';
                 echo '<td>' . $osallistuja['id'] . '</td>';
                 echo '<td>' . $user['etunimi'] . ' ' . $user['sukunimi'] . '</td>';
                 echo '<td>' . $seura . '</td>';
                 echo '<td>' . $osallistuja['jarjestysNumero'] . '</td>';
-                echo '<td>' . '<a href="poista_osallistuja.php?id='. $kisa['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
+                echo '<td>' . '<a href="poista_osallistuja.php?id='. $osallistuja['id'] . '" class="btn btn-danger">Poista</a>' . '</td>';
                 echo '</tr>';
             }
 
